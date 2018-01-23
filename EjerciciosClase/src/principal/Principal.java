@@ -137,7 +137,7 @@ public class Principal {
 		movimientos.add(-100.0f);
 		movimientos.add(20.0f);
 		movimientos.add(-50.0f);
-
+		float calcula = practicas.calculaSaldo(saldoInicial, movimientos);
 		System.out.println(practicas.calculaSaldo(saldoInicial, movimientos));
 		System.out.println("fin2");
 

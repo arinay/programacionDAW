@@ -425,7 +425,7 @@ public class Practicas {
 				}
 	}
 
-	public float calculaSaldo2(float saldoInicial, float[] movimientos) {
+	public float calculaSaldo(float saldoInicial, float[] movimientos) {
 		float saldoFinal = saldoInicial;
 		for (int i = 0; i < movimientos.length; i++)
 			saldoFinal += movimientos[i];
