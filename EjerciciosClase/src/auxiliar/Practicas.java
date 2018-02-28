@@ -26,7 +26,31 @@ public class Practicas {
 
 	// SEGUNDA EVALUACION
 
-	
+	public ArrayList<Estudiante> introListas() {
+		ArrayList<Estudiante> listaE;
+		listaE = new ArrayList<Estudiante>();
+		Estudiante est1 = new Estudiante(123);
+		listaE.add(est1);
+		listaE.add(est1);
+		listaE.add(est1);
+		listaE.add(est1);
+		listaE.add(est1);
+		int tam = listaE.size();
+		Estudiante est2 = new Estudiante(321);
+		listaE.add(0, est2);
+		listaE.remove(listaE.size() - 1);
+		// listaE.set(0, est1);
+		for (Estudiante estudiante : listaE) {
+			// System.out.println(estudiante.getCodGrupo());
+		}
+		for (int i = 0; i < listaE.size(); i++) {
+			// System.out.println(listaE.get(i).getCodGrupo());
+		}
+
+		// System.out.println("fin introListas");
+		return listaE;
+
+	}
 	
 	
 
