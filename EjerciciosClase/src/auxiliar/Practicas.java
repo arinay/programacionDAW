@@ -21,7 +21,7 @@ import java.util.Set;
 import modelo.Datos;
 import modelo.Equipo;
 import modelo.Estudiante;
-//Hola
+
 public class Practicas {
 
 	// SEGUNDA EVALUACION
@@ -146,7 +146,7 @@ public class Practicas {
 		Estudiante est2 = new Estudiante(30, "333G", "Paco3", 'M', null, 180, null, null);
 		ArrayList<Estudiante> lista = new ArrayList<Estudiante>();
 
-		// aï¿½adimos los 3 estudiantes a la lista
+		// añadimos los 3 estudiantes a la lista
 
 		lista.add(est);
 		lista.add(est1);
@@ -400,14 +400,14 @@ public class Practicas {
 		LocalDate fechaNac = LocalDate.parse(fechaNacimiento, fmt);
 		LocalDate ahora = LocalDate.now();
 		Period periodo = Period.between(fechaNac, ahora);
-		// System.out.printf("Tu edad es: %s aï¿½os, %s meses y %s dï¿½as",
+		// System.out.printf("Tu edad es: %s años, %s meses y %s días",
 		// periodo.getYears(), periodo.getMonths(),
 		// periodo.getDays());
 		return periodo.getYears();
 	}
 
 	// private static String[] diasSemana = { "lunes", "martes", "miercoles",
-	// "jueves", "viernes", "sï¿½bado", "domingo" };
+	// "jueves", "viernes", "sábado", "domingo" };
 
 	public boolean esPrimo(int numero) {
 
@@ -447,7 +447,7 @@ public class Practicas {
 		return numeros;
 	}
 
-	// LIGA: Obtener clasificaciï¿½n a partir de resultados
+	// LIGA: Obtener clasificación a partir de resultados
 	public int[] obtenerClasificacion(String[][] goles) {
 		int[] puntos = new int[5];
 		int golesLocal;
@@ -595,7 +595,7 @@ public class Practicas {
 
 	public void ordenaEstudiantes(Estudiante[] estudiantes) {
 		// ejemplo de uso de la interfaz Comparable
-		// debe implementarse el mï¿½todo compareTo
+		// debe implementarse el método compareTo
 
 		for (int i = 0; i < estudiantes.length - 1; i++)
 			for (int j = i + 1; j < estudiantes.length; j++)
@@ -791,7 +791,7 @@ public class Practicas {
 	public void listaDiasSemana() {
 		Datos datos = new Datos();
 		// String[] diasSemana = { "lunes", "martes", "miercoles", "jueves", "viernes",
-		// "sï¿½bado", "domingo" };
+		// "sábado", "domingo" };
 		// for (int i = 0; i < datos.getDiasSemana().length; i++)
 		for (String dia : datos.getDiasSemana())
 			// System.out.println(datos.getDiasSemana()[i]);
