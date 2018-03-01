@@ -54,6 +54,8 @@ public class Practicas {
 		return arrayComunidades;
 
 	}
+	
+	
 
 	// public HashMap<Integer, ArrayList<String>> clavesProvincias(String fichero,
 	// HashMap<Integer, ArrayList<String>>){
