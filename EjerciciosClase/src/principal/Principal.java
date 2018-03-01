@@ -15,7 +15,7 @@ import modelo.Persona;
 import modelo.Profesor;
 
 public class Principal {
-	// metodo por el que debe empezar la ejecución ..
+	// metodo por el que debe empezar la ejecuciï¿½n ..
 	public static void main(String[] args) {
 		/*
 		 * Persona persona; persona = new Persona();
@@ -149,20 +149,22 @@ public class Principal {
 		
 		
 		//Practicas.grabarObjetosEnFichero("ficheros/estudiantesLista.obj");
-		practicas.leeObjetosDesdeFichero("ficheros/estudiantesLista.obj");
+		//practicas.leeObjetosDesdeFichero("ficheros/estudiantesLista.obj");
 		
 		
 		
-		ArrayList<Float> movs = new ArrayList<Float>();
+		/*ArrayList<Float> movs = new ArrayList<Float>();
 		movs.add(12.5f);
 		movs.add(-12.5f);
 		movs.add(10.5f);
 		//float sFinal = practicas.calculaSaldo(20.0f, movs);
-		Collections.sort(lista);
+		Collections.sort(lista);*/
 		
 		//HashMap<Integer, ArrayList<Float>> xyz = practicas.visitantesIslaMes("ficheros/visitantesIslaMes.txt");
 		//practicas.listadoIslasMeses("ficheros/visitantesIslaMes.txt");
-		practicas.copiaEstudiantesTxtAObjetos("ficheros/estudiantes.txt", "ficheros/estudiantes.obj");
+		//practicas.copiaEstudiantesTxtAObjetos("ficheros/estudiantes.txt", "ficheros/estudiantes.obj");
+		practicas.crearListaArrayComunidades("ficheros/comunidades.txt");
+		
 		System.out.println("fin");
 
 	}

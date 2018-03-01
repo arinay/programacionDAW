@@ -26,6 +26,65 @@ public class Practicas {
 
 	// SEGUNDA EVALUACION
 
+	// Marzo
+
+	public String[] crearListaArrayComunidades(String fichero) {
+		String[] arrayComunidades = new String[19];
+		try {
+			// Abrir el fichero
+			FileReader fr = new FileReader(fichero);
+			BufferedReader br = new BufferedReader(fr);
+			String linea;
+			// Leer el fichero linea a linea
+			while ((linea = br.readLine()) != null) {
+				String[] campos = linea.split("%");
+				int num = Integer.parseInt(campos[0]);
+				String nombre = campos[1];
+				for (int i = 0; i < arrayComunidades.length; i++) {		
+				}
+				System.out.println(campos[0]+" "+ campos[1]);
+			}
+			fr.close();
+			br.close();
+		} catch (FileNotFoundException e) {
+			System.out.println(e.getMessage());
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+		}
+		return arrayComunidades;
+
+	}
+
+	// public HashMap<Integer, ArrayList<String>> clavesProvincias(String fichero,
+	// HashMap<Integer, ArrayList<String>>){
+	// HashMap<Integer, ArrayList<String> > mapProvincias = new HashMap<Integer,
+	// ArrayList<String>>();
+	// try {
+	// // Abrir el fichero
+	// FileReader fr = new FileReader(fichero);
+	// BufferedReader br = new BufferedReader(fr);
+	//
+	// Set<String> claves = fichero.k
+	//
+	// String linea;
+	// // Leer el fichero linea a linea
+	// while ((linea = br.readLine()) != null) {
+	// String[] campos = linea.split("%");
+	// for (int i=0; i<arrayComunidades.length; i ++) {
+	// campos[1] = arrayComunidades[i];
+	// }
+	//
+	// }
+	// fr.close();
+	// br.close();
+	// } catch (FileNotFoundException e) {
+	// System.out.println(e.getMessage());
+	// } catch (IOException e) {
+	// System.out.println(e.getMessage());
+	// }
+	// }
+
+	// Enero y Febrero
 	public ArrayList<Estudiante> introListas() {
 		ArrayList<Estudiante> listaE;
 		listaE = new ArrayList<Estudiante>();
@@ -51,8 +110,6 @@ public class Practicas {
 		return listaE;
 
 	}
-	
-	
 
 	// 11 enero 2018
 	// Leer una matriz de int y devolverla como ArrayList
@@ -138,9 +195,25 @@ public class Practicas {
 
 	}
 
-	public void copiaEstudiantesObjATxt(String rutaObj, String rutaTxt) {
-
-	}
+	/*
+	 * public void copiaEstudiantesObjATxt(String rutaObj, String rutaTxt) { try {
+	 * // Abrir el fichero entrada ObjectInputStream ois = new ObjectInputStream(new
+	 * FileInputStream(rutaObj)); //se
+	 * 
+	 * // Abrir el fichero salida FileOutputStream fIs = new
+	 * FileOutputStream(rutaTxt); ObjectOutputStream fObj = new
+	 * ObjectOutputStream(fIs);
+	 * 
+	 * String linea; // System.out.println(LocalDate.now()); // Leer el fichero
+	 * linea a linea while ((linea = ois.readLine()) != null) { String[] campos =
+	 * linea.split("#"); // crear estudiante a partir del registro leido Estudiante
+	 * estudiante = crearEstudianteLeido(campos); // grabar objeto estudiante en
+	 * fichero .. fObj.writeObject(estudiante);
+	 * 
+	 * } fr.close(); br.close(); fIs.close(); fObj.close(); } catch
+	 * (FileNotFoundException e) { System.out.println(e.getMessage()); } catch
+	 * (IOException e) { System.out.println(e.getMessage()); } }
+	 */
 
 	public static void grabarObjetosEnFichero(String fichero) {
 		Estudiante est = new Estudiante(10, "111G", "Paco1", 'M', null, 181, null, null);
