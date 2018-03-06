@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Set;
 
 import auxiliar.Practicas;
@@ -151,6 +152,7 @@ public class Principal {
 		//Practicas.grabarObjetosEnFichero("ficheros/estudiantesLista.obj");
 		//practicas.leeObjetosDesdeFichero("ficheros/estudiantesLista.obj");
 		
+		//practicas.copiaEStudiantesObjATxt(rutaObj, rutaTxt);
 		
 		
 		/*ArrayList<Float> movs = new ArrayList<Float>();
@@ -163,8 +165,17 @@ public class Principal {
 		//HashMap<Integer, ArrayList<Float>> xyz = practicas.visitantesIslaMes("ficheros/visitantesIslaMes.txt");
 		//practicas.listadoIslasMeses("ficheros/visitantesIslaMes.txt");
 		//practicas.copiaEstudiantesTxtAObjetos("ficheros/estudiantes.txt", "ficheros/estudiantes.obj");
-		practicas.crearListaArrayComunidades("ficheros/comunidades.txt");
+		//practicas.crearListaArrayComunidades("ficheros/comunidades.txt");
+		//String[] hasMap =practicas.crearListaArrayComunidades("ficheros/comunidades.txt");
+		//HashMap<Integer, ArrayList<String>> provincias = practicas.provinciaClaves("ficheros/provincias.txt");
 		
+		//String[] ca = practicas.leerCA("ficheros/comunidades.txt");
+		//List<String> lca = Arrays.asList(ca);
+		//Collections.sort(lca);
+		
+		HashMap<String, ArrayList<String>> datosListado =practicas.generarDatosListadosProvincias("ficheros/provincias.txt");
+		
+		practicas.listadoProvinciasPorCA(datosListado); 
 		System.out.println("fin");
 
 	}

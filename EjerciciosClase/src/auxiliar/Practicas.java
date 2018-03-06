@@ -27,23 +27,20 @@ public class Practicas {
 	// SEGUNDA EVALUACION
 
 	// Marzo
-
-	public String[] crearListaArrayComunidades(String fichero) {
-		String[] arrayComunidades = new String[19];
+	public String[] leerCA(String rutaComunidades) {
+		String[] comunidades = new String[19];
 		try {
 			// Abrir el fichero
-			FileReader fr = new FileReader(fichero);
+			FileReader fr = new FileReader(rutaComunidades);
 			BufferedReader br = new BufferedReader(fr);
 			String linea;
 			// Leer el fichero linea a linea
+			int i = 0;
 			while ((linea = br.readLine()) != null) {
-				String[] campos = linea.split("%");
-				int num = Integer.parseInt(campos[0]);
-				String nombre = campos[1];
-				for (int i = 0; i < arrayComunidades.length; i++) {		
-				}
-				System.out.println(campos[0]+" "+ campos[1]);
+				comunidades[i++] = linea.split("%")[1];
+
 			}
+			System.out.println("\n");
 			fr.close();
 			br.close();
 		} catch (FileNotFoundException e) {
@@ -51,40 +48,57 @@ public class Practicas {
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
-		return arrayComunidades;
+
+		return comunidades;
+	}
+
+	public HashMap<String, ArrayList<String>> generarDatosListadosProvincias(String rutaprovincias) {
+		String[] comunidades = leerCA("ficheros/comunidades.txt");
+		HashMap<String, ArrayList<String>> datosListados = new HashMap<String, ArrayList<String>>();
+
+		try {
+			// Abrir el fichero
+			FileReader fr = new FileReader(rutaprovincias);
+			BufferedReader br = new BufferedReader(fr);
+			String linea;
+			// Leer el fichero linea a linea
+			int i = 0;
+			while ((linea = br.readLine()) != null) {
+				String[] campos = linea.split("%");
+				if (datosListados.get(comunidades[Integer.parseInt(campos[2]) - 1]) == null)
+					datosListados.put(comunidades[Integer.parseInt(campos[2]) - 1], new ArrayList<String>());
+				datosListados.get(comunidades[Integer.parseInt(campos[2]) - 1]).add(campos[1] + "#" + campos[3]);
+
+			}
+			System.out.println("\n");
+			fr.close();
+			br.close();
+		} catch (FileNotFoundException e) {
+			System.out.println(e.getMessage());
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+		}
+		return datosListados;
 
 	}
-	
-	
 
-	// public HashMap<Integer, ArrayList<String>> clavesProvincias(String fichero,
-	// HashMap<Integer, ArrayList<String>>){
-	// HashMap<Integer, ArrayList<String> > mapProvincias = new HashMap<Integer,
-	// ArrayList<String>>();
-	// try {
-	// // Abrir el fichero
-	// FileReader fr = new FileReader(fichero);
-	// BufferedReader br = new BufferedReader(fr);
-	//
-	// Set<String> claves = fichero.k
-	//
-	// String linea;
-	// // Leer el fichero linea a linea
-	// while ((linea = br.readLine()) != null) {
-	// String[] campos = linea.split("%");
-	// for (int i=0; i<arrayComunidades.length; i ++) {
-	// campos[1] = arrayComunidades[i];
-	// }
-	//
-	// }
-	// fr.close();
-	// br.close();
-	// } catch (FileNotFoundException e) {
-	// System.out.println(e.getMessage());
-	// } catch (IOException e) {
-	// System.out.println(e.getMessage());
-	// }
-	// }
+	public void listadoProvinciasPorCA(HashMap<String, ArrayList<String>> datosListados) {
+		// Recorrer HasMap con doble for
+
+		Set<String> comunidades = datosListados.keySet();
+		for (String comunidad : comunidades) {
+			ArrayList<String> listaProcincias = datosListados.get(comunidad);
+			int acumuladoCA = 0;
+			System.out.println("CCAA :" + comunidad);
+			for (String provincia : listaProcincias) {
+				acumuladoCA += Integer.parseInt(provincia.split("#")[1]);
+				System.out.println(provincia.split("#")[0] + ", " + provincia.split("#")[1]);
+
+			}
+			System.out.println("Total padrón CCAA: " + comunidad + "=" + acumuladoCA + "\n");
+		}
+
+	}
 
 	// Enero y Febrero
 	public ArrayList<Estudiante> introListas() {
@@ -163,6 +177,35 @@ public class Practicas {
 		estudiante.setPadre(null);
 		return estudiante;
 
+	}
+
+	public void copiaEStudiantesObjATxt(String rutaObj, String rutaTxt) {
+		try {
+			FileInputStream fIs = new FileInputStream(rutaObj);
+			ObjectInputStream fObj = new ObjectInputStream(fIs);
+			BufferedWriter fb = new BufferedWriter(new FileWriter(rutaTxt));
+
+			// recorrer el fichero
+			Estudiante est = null;
+
+			while (fIs.available() > 0) {
+				String registroTxt = "";
+				est = (Estudiante) fObj.readObject();
+				registroTxt = est.getCodGrupo() + "#" + est.getNif() + "#" + est.getNombre() + "#" + est.getSexo() + "#"
+						+ est.getFecha().toString() + "#" + est.getAltura() + "=\n";
+				fb.write(registroTxt);
+
+			}
+			// System.out.println(lista.get(0).getNombre());
+			fb.close();
+			fObj.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("Fichero no encontrado");
+		} catch (IOException e) {
+			System.out.println("Error IO");
+		} catch (ClassNotFoundException e) {
+			System.out.println("ClassNotFound");
+		}
 	}
 
 	public void copiaEstudiantesTxtAObjetos(String rutaTxt, String rutaObj) {
